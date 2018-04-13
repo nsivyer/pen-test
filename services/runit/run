@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+RUNAS=root
+
+sv once pen-test
+touch down
+
+exec 2>&1
+rm -rf /opt/nsivyer/pen-test/results
+mkdir -p /opt/nsivyer/pen-test/results
+cat /opt/nsivyer/pen-test/to-scan.txt | xargs -P10 -I{} python /opt/nsivyer/pen-test/test-ip.py {} 
+

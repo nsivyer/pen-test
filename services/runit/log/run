@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+
+RUNAS=root
+LOG=/opt/nsivyer/pen-test/log/
+
+test -d "$LOG" || { mkdir -p -m 2770 "$LOG" && chown $RUNAS:adm "$LOG"; }
+
+exec chpst -u $RUNAS svlogd -tt "$LOG"

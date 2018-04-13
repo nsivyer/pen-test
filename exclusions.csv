@@ -1,0 +1,12 @@
+##########
+#
+# Exclusions file, Add to this file to accept that this port should be open to the world.
+#
+#
+#########
+
+#example exclusions
+8.8.8.8,udp,53,open
+8.8.8.8,tcp,53,closed
+
+ 
